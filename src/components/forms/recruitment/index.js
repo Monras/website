@@ -50,9 +50,8 @@ export default class RecruitmentForm extends Component {
         className={style.recruitmentForm}
 
         action={RecruitmentForm.formAction}
-        name={RecruitmentForm.formName}
       >
-        <input type="hidden" name="form-name" value={stateIsValid ? RecruitmentForm.formName : "invalid-forms"} />
+        <input type="hidden" name="form-name" value={RecruitmentForm.formName} />
         <input type="hidden" name="applying-for" value={applyingForRole} />
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name={RecruitmentForm.potName} value={!stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
