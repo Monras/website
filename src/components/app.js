@@ -21,6 +21,13 @@ export default class App extends Component {
         <Router onChange={this.handleRoute}>
           <Home path="/" />
         </Router>
+        {
+          typeof window === "undefined" && (
+            <noscript>
+              <style>{".noscript-hide { display: none !important; }"}</style>
+            </noscript>
+          )
+        }
       </div>
     );
   }

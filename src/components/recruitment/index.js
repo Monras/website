@@ -33,7 +33,7 @@ class Role extends Component {
               </ul>
             </div>
           ) }
-          <div className={style.actions}>
+          <div className={style.actions + " noscript-hide"}>
             <Button disabled={selected} onClick={this.onApplyFor}>
               { selected ? "Applying for this role" : "Apply for this role"}
             </Button>

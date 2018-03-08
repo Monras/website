@@ -118,10 +118,12 @@ export default class Home extends Component {
           <Section name="Who we are looking for">
             <Recruitment applyingForRole={this.state.applyingForRole} onApplyForRole={this.onApplyForRole} specificRoles={recruitmentData.specific} genericRoles={recruitmentData.generic} />
           </Section>
-          <Section name="Join us">
-            <Markdown markdown={textJoinUs} />
-            <RecruitmentForm onClearRole={this.onClearRole} applyingForRole={this.state.applyingForRole} />
-          </Section>
+          <div className="noscript-hide">
+            <Section name="Join us">
+              <Markdown markdown={textJoinUs} />
+              <RecruitmentForm onClearRole={this.onClearRole} applyingForRole={this.state.applyingForRole} />
+            </Section>
+          </div>
           <Footer />
         </Column>
       </Animated>
