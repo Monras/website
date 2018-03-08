@@ -16,6 +16,40 @@ const LevelOfStudyChoices = [
   "other"
 ];
 
+class ReCAPTCHACapture extends Component {
+  componentDidMount() {
+    const node = document.querySelector(".g-recaptcha");
+    console.log(node);
+    if (node) {
+      this.node = node;
+      this.parent = this.node.parentNode;
+      this.base.appendChild(this.node);
+      console.info("Grabbed g-recaptcha");
+    }
+  }
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  componentWillUnmount() {
+    if (this.parent && this.node) {
+      this.parent.appendChild(this.node);
+      this.parent = null;
+      this.node = null;
+      console.info("Returned g-recaptcha");
+    }
+  }
+
+
+  render() {
+    console.log("Render?");
+    return (
+      <div className="recaptcha" />
+    );
+  }
+}
+
 export default class RecruitmentForm extends Component {
   static potName = "backend-id";
   static potDefaultValue = "go-for-launch";
@@ -127,6 +161,7 @@ export default class RecruitmentForm extends Component {
               </div>
             </div>
           </div>
+          <ReCAPTCHACapture />
           <div className={style.row}>
             <div className={style.flex}>
               <Button disabled={!stateIsValid} type="submit">Submit</Button>
