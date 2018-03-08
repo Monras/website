@@ -40,24 +40,6 @@ export default class RecruitmentForm extends Component {
     return true;
   };
 
-  static basicForm = () => (
-    <form
-      name={RecruitmentForm.formName}
-      netlify
-      netlify-honeypot={RecruitmentForm.potName}
-      hidden
-    >
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="applying-for" />
-      <textarea name="describe-yourself" />
-      <input type="text" name="years-left-at-KTH" />
-      <input type="text" name="program-of-study" />
-      <input type="text" name="level-of-study" />
-      <div netlify-recaptcha />
-    </form>
-  );
-
   render({ applyingForRole, onClearRole }, state) {
     const isServerRender = typeof window === "undefined";
     const stateIsValid = isServerRender ? false : RecruitmentForm.validate(state);
