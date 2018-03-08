@@ -37,6 +37,22 @@
       url: '/'
     }) %>
 
+    <form
+      name="contact"
+      netlify
+      netlify-honeypot="backend-id"
+      hidden
+    >
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="applying-for" />
+      <textarea name="describe-yourself" />
+      <input type="text" name="years-left-at-KTH" />
+      <input type="text" name="program-of-study" />
+      <input type="text" name="level-of-study" />
+      <div netlify-recaptcha />
+    </form>
+
     <script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
     <script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
