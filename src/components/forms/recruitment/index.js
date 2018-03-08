@@ -52,7 +52,7 @@ export default class RecruitmentForm extends Component {
         action={RecruitmentForm.formAction}
       >
         <input type="hidden" name="form-name" value={RecruitmentForm.formName} />
-        <input type="hidden" name="applying-for" value={applyingForRole} />
+        <input type="hidden" name="applying for" value={applyingForRole} />
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name={RecruitmentForm.potName} value={!stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
         </div>
@@ -79,7 +79,7 @@ export default class RecruitmentForm extends Component {
           }
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="multiple" type="text" name="describe-yourself" value={state.describeYourself} onInput={linkState(this, "describeYourself")}>Describe what you could help out with at ÆSIR</Field>
+              <Field lines="multiple" type="text" name="describe yourself" value={state.describeYourself} onInput={linkState(this, "describeYourself")}>Describe what you could help out with at ÆSIR</Field>
             </div>
           </div>
           <div className={style.row}>
@@ -90,7 +90,7 @@ export default class RecruitmentForm extends Component {
                 max={RecruitmentForm.maxYears}
                 step={1}
                 type="number"
-                name="years-left-at-KTH"
+                name="years left at KTH"
                 value={state.yearsLeft}
                 onInput={linkState(this, "yearsLeft")}
               >
@@ -101,7 +101,7 @@ export default class RecruitmentForm extends Component {
               <Field
                 lines="single"
                 type="text"
-                name="program-of-study"
+                name="program of study"
                 value={state.programOfStudy}
                 onInput={linkState(this, "programOfStudy")}
               >
@@ -114,7 +114,7 @@ export default class RecruitmentForm extends Component {
                 {
                   LevelOfStudyChoices.map(choice => (
                     <Radio
-                      name="level-of-study"
+                      name="level of study"
                       value={choice}
                       className={style.gridEntry}
                       checked={state.levelOfStudy === choice}
