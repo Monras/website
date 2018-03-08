@@ -40,28 +40,41 @@ export default class RecruitmentForm extends Component {
     return true;
   };
 
+  static basicForm = () => (
+    <form
+      name={RecruitmentForm.formName}
+      netlify
+      netlify-honeypot={RecruitmentForm.potName}
+      hidden
+    >
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="applying-for" />
+      <textarea name="describe-yourself" />
+      <input type="text" name="years-left-at-KTH" />
+      <input type="text" name="program-of-study" />
+      <input type="text" name="level-of-study" />
+      <div netlify-recaptcha />
+    </form>
+  );
+
   render({ applyingForRole, onClearRole }, state) {
     const isServerRender = typeof window === "undefined";
-
-    const stateIsValid = RecruitmentForm.validate(state);
+    const stateIsValid = isServerRender ? false : RecruitmentForm.validate(state);
     return (
       <form
         id="recruitment"
         method="post"
         className={style.recruitmentForm}
 
-        netlify
-        netlify-honeypot={isServerRender ? RecruitmentForm.potName : null}
-
         action={RecruitmentForm.formAction}
         name={RecruitmentForm.formName}
       >
         <input type="hidden" name="form-name" value={stateIsValid ? RecruitmentForm.formName : "invalid-forms"} />
-        <input type="hidden" name="applying for" value={applyingForRole} />
+        <input type="hidden" name="applying-for" value={applyingForRole} />
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name={RecruitmentForm.potName} value={!stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
         </div>
-        <div netlify-recaptcha />
         <div className={style.container}>
           <div className={style.row}>
             <div className={style.flex}>
@@ -85,7 +98,7 @@ export default class RecruitmentForm extends Component {
           }
           <div className={style.row}>
             <div className={style.flex}>
-              <Field lines="multiple" type="text" name="describe yourself" value={state.describeYourself} onInput={linkState(this, "describeYourself")}>Describe what you could help out with at ÆSIR</Field>
+              <Field lines="multiple" type="text" name="describe-yourself" value={state.describeYourself} onInput={linkState(this, "describeYourself")}>Describe what you could help out with at ÆSIR</Field>
             </div>
           </div>
           <div className={style.row}>
@@ -96,7 +109,7 @@ export default class RecruitmentForm extends Component {
                 max={RecruitmentForm.maxYears}
                 step={1}
                 type="number"
-                name="years left at KTH"
+                name="years-left-at-KTH"
                 value={state.yearsLeft}
                 onInput={linkState(this, "yearsLeft")}
               >
@@ -107,7 +120,7 @@ export default class RecruitmentForm extends Component {
               <Field
                 lines="single"
                 type="text"
-                name="program of study"
+                name="program-of-study"
                 value={state.programOfStudy}
                 onInput={linkState(this, "programOfStudy")}
               >
@@ -120,7 +133,7 @@ export default class RecruitmentForm extends Component {
                 {
                   LevelOfStudyChoices.map(choice => (
                     <Radio
-                      name="level of study"
+                      name="level-of-study"
                       value={choice}
                       className={style.gridEntry}
                       checked={state.levelOfStudy === choice}

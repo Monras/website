@@ -3,6 +3,7 @@ import { Router } from "preact-router";
 
 import SocialHeader from "./socialheader";
 import Home from "../routes/home";
+import RecruitmentForm from "./forms/recruitment";
 
 export default class App extends Component {
 
@@ -41,6 +42,7 @@ export default class App extends Component {
         <Router>
           <Home path="/" />
         </Router>
+        {RecruitmentForm.basicForm()}
       </div>
     );
   }
