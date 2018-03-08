@@ -61,6 +61,7 @@ export default class RecruitmentForm extends Component {
         <div hidden className={style.hidden}>
           <label>resistance is futile: <input name={RecruitmentForm.potName} value={!stateIsValid ? RecruitmentForm.potDefaultValue : null} /></label>
         </div>
+        <div netlify-recaptcha />
         <div className={style.container}>
           <div className={style.row}>
             <div className={style.flex}>
