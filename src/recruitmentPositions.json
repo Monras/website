@@ -1,17 +1,16 @@
 {
   "specific": {
-    "odinEconomicallyResponsible": {
-      "recruitmentTitle": "Odin economically responsible",
-      "title": "Economy responsible for Odin",
-      "description": "We are looking for a person responsible for the economy of our Odin project by making purchases and doing bookkeeping.",
+    "IT/websiteresponisble": {
+      "recruitmentTitle": "IT/website responsible",
+      "title": "Overall IT-person for ÆSIR",
+      "description": "We are looking for a person who knows (or want to learn) how to manage this website, google drive, gmail and Facebook Workplace. Knowledge in Javascript, HTML and basic programing is preferred. Have a look at our Github for an insight at this websites construction",
       "requirements": [
-        "Have some knowledge (and want to learn more) with bookkeeping.",
-        "Have some experience with purchasing things internationally."
+        "Have some knowledge (and want to learn more) with Javascript, HTML and gmail",
+        "Have some experience with website- and email managment"
       ],
       "shouldLike": [
-        "Purchase things for the Odin project.",
-        "Keep track of expenses for the Odin project.",
-        "Do bookkeeping for the Odin project."
+        "Technical challenges and improving/sustaining internal communications."
+        "Designing websites"
       ]
     },
     "prResponsible": {
